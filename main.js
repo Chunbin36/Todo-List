@@ -31,20 +31,20 @@ function render(){
     let resultHTML = '';
     for(let i=0;i<taskList.length;i++){
         if(taskList[i].isComplete == true){
-            resultHTML+=`<div class ="task">
-                    <div class="task-done">${taskList[i].taskContent}</div>
-                    <div>
-                        <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                        <button onclick="deleteTask('${taskList[i].id}')" >Delete</button>
+            resultHTML+=`<div class="task task-done">
+                <div class="task-text">${taskList[i].taskContent}</div>
+                    <div class="button-box">
+                        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check check-icon"></i></button>
+                        <button onclick="deleteTask('${taskList[i].id}')" ><i class="fa-solid fa-trash delete-icon"></i></button>
                     </div>
                 </div>`
 
         } else{
-            resultHTML += `<div class ="task">
-                    <div>${taskList[i].taskContent}</div>
-                    <div>
-                        <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                        <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
+            resultHTML += `<div class="task">
+                <div class="task-text">${taskList[i].taskContent}</div>
+                    <div class="button-box">
+                        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check check-icon"></i></button>
+                        <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash delete-icon"></i></button>
                     </div>
                 </div>`;
         }

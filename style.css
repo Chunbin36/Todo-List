@@ -42,9 +42,43 @@ body{
 .task{
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    align-items: stretch;
 }
 
 .task-done{
     text-decoration: line-through;
+    background-color: #e0e0e0; 
+    color: #666;
+}
+
+.task-text{
+    padding: 1rem;
+}
+
+.task-done .button-box {
+  background-color: white;
+}
+
+.button-box {
+  width: 150px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.button-box button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.check-icon {
+  color: green !important;
+}
+
+.delete-icon {
+  color: red !important;
 }
