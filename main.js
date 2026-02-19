@@ -12,7 +12,7 @@
 
 let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
-let tabs = document.querySelectorAll(".task-tabs div")
+let tabs = document.querySelectorAll(".task-tabs div");
 let mode='all'
 let filterList = []
 let taskList = []
@@ -20,6 +20,12 @@ let underLine = document.getElementById("under-line")
 let Menus = document.getElementById("section:nth-child(2) div")
 
 addButton.addEventListener("click",addTask)
+
+taskInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
 
 for(let i=1;i<tabs.length;i++){
     tabs[i].addEventListener("click",function(event) {
@@ -160,14 +166,15 @@ function filter(event){
     
 }
 
-function moveUnderline(e) {
-  if (e) {
-    mode = e.target.id;
-    underLine.style.width = e.target.offsetWidth + "px";
+
+
+
+tabs.forEach((menu) =>
+  menu.addEventListener("click", (e) => {
     underLine.style.left = e.target.offsetLeft + "px";
-    underLine.style.top =
-      e.target.offsetTop + (e.target.offsetHeight - 4) + "px";
-  }} 
+    underLine.style.width = e.target.offsetWidth + "px";
+  })
+);
 
 
 function randomIDGenerate(){
