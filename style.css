@@ -82,3 +82,7 @@ body{
 .delete-icon {
   color: red !important;
 }
+
+.undo-icon {
+  color: gray !important;
+}

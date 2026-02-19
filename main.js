@@ -27,32 +27,59 @@ function addTask(){
     render();
 } 
 
-function render(){
-    let resultHTML = '';
-    for(let i=0;i<taskList.length;i++){
-        if(taskList[i].isComplete == true){
-            resultHTML+=`<div class="task task-done">
-                <div class="task-text">${taskList[i].taskContent}</div>
-                    <div class="button-box">
-                        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check check-icon"></i></button>
-                        <button onclick="deleteTask('${taskList[i].id}')" ><i class="fa-solid fa-trash delete-icon"></i></button>
-                    </div>
-                </div>`
+function render() {
+  let resultHTML = "";
 
-        } else{
-            resultHTML += `<div class="task">
-                <div class="task-text">${taskList[i].taskContent}</div>
-                    <div class="button-box">
-                        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check check-icon"></i></button>
-                        <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash delete-icon"></i></button>
-                    </div>
-                </div>`;
-        }
+  for (let i = 0; i < taskList.length; i++) {
 
+    if (taskList[i].isComplete == true) {
+
+      resultHTML += `
+      <div class="task task-done">
+        
+        <div class="task-text">${taskList[i].taskContent}</div>
+
+        <div class="button-box">
+
+          <!-- 되돌리기 아이콘 -->
+          <button onclick="toggleComplete('${taskList[i].id}')">
+            <i class="fa-solid fa-rotate-left undo-icon"></i>
+          </button>
+
+          <button onclick="deleteTask('${taskList[i].id}')">
+            <i class="fa-solid fa-trash delete-icon"></i>
+          </button>
+
+        </div>
+      </div>
+      `;
+
+    } else {
+
+      resultHTML += `
+      <div class="task">
+
+        <div class="task-text">${taskList[i].taskContent}</div>
+
+        <div class="button-box">
+
+          <button onclick="toggleComplete('${taskList[i].id}')">
+            <i class="fa-solid fa-check check-icon"></i>
+          </button>
+
+          <button onclick="deleteTask('${taskList[i].id}')">
+            <i class="fa-solid fa-trash delete-icon"></i>
+          </button>
+
+        </div>
+      </div>
+      `;
     }
+  }
 
-    document.getElementById("task-board").innerHTML = resultHTML;
+  document.getElementById("task-board").innerHTML = resultHTML;
 }
+
 
 function toggleComplete(id) {
     for(let i=0;i<taskList.length;i++){
