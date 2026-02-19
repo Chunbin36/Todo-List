@@ -33,10 +33,19 @@ body{
     height: 4px;
     background-color: pink;
     position: absolute;
-    width: 65px;
+    width: 0px;
     left: 0px;
-    top:52px;
+    top:0px;
     padding:0px;
+    transition: 0.5s;
+}
+
+section:first-child{
+    display: flex;
+}
+
+section:nth-child(2){
+    display: flex;
 }
 
 .task{
@@ -85,4 +94,8 @@ body{
 
 .undo-icon {
   color: gray !important;
+}
+
+.task-tabs div{
+    cursor:pointer;
 }
